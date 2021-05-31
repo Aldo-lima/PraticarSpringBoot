@@ -29,7 +29,7 @@ public ResponseEntity<List<Product>>findAll(){
 
 @GetMapping (value = "/{id}")
 public ResponseEntity<Product>findById(@PathVariable long id){
-	Product cat = categoryRepository.finByID(id);
+	Product cat = categoryRepository.findById(id).get();
 	return ResponseEntity.ok().body(cat);
 }
 }
