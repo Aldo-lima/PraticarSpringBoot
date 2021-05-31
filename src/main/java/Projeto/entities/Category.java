@@ -1,6 +1,10 @@
 package Projeto.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Category implements Serializable {
 
@@ -8,6 +12,9 @@ public class Category implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String name;
+	
+	@JsonIgnore
+	private List<Product> products = new ArrayList<>();
 
 	public Category() {
 
@@ -47,6 +54,17 @@ public class Category implements Serializable {
 		this.name = name;
 	}
 
+	
+	
+	/**
+	 * @return the products
+	 */
+	public List<Product> getProducts() {
+		return products;
+	}
+
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -55,6 +73,8 @@ public class Category implements Serializable {
 		return result;
 	}
 
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
